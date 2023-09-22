@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <libft.h>*/
-#include <stdio.h>
-#include <string.h>
+#include <libft.h>
+//#include <stdio.h>
+//#include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -30,7 +30,7 @@ char	*ft_strrchr(const char *s, int c)
     return (NULL);
 }
 
-int main()
+/*int main()
 {
 	const char *string = "Hola Hans";
 	int search = 'a';
@@ -45,4 +45,4 @@ int main()
 		printf("EL caracter '%c' no fué encontrado en la cadena.\n", search);
 	}
 	return (0);
-}
+}*/

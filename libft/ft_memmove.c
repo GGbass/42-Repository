@@ -1,28 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/26 12:20:11 by gongarci          #+#    #+#             */
+/*   Updated: 2023/09/26 12:20:14 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-/*#include <string.h>*/
-/*#include <stdio.h>*/
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t bytes_copied)
 {
-    size_t	len;
+	size_t	i;
 
-	len = 0;
-	if (dest < src)
+	i = 0;
+	if (src < dest)
 	{
-		len = n;
-		while (len > 0)
+		i = bytes_copied;
+		while (i > 0)
 		{
-			len--;
-			((unsigned char *)dest)[len] = ((unsigned char *)src)[len];
+			i--;
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
 		}
 	}
 	else
 	{
-		len = 0;
-		while (len < n)
+		i = 0;
+		while (i < bytes_copied)
 		{
-			((unsigned char *)dest)[len] = ((unsigned char *)src)[len];
-			len++;
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i++;
 		}
 	}
 	return (dest);

@@ -39,14 +39,9 @@ void	*ft_memmove(void *dest, const void *src, size_t bytes_copied);
 int		ft_memcmp(const void *dest, const void *src, size_t n_bytes);
 void	*ft_memchr(const void *s, int c, size_t n_bytes);
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(const char *str);
 /*<stdlib.h>*/
 
 /* 42 functions*/
 #endif
-/**
- *functions missing:
- usingmalloc :
- calloc
- strdup
-
-*/

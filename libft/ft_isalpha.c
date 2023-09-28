@@ -1,25 +1,22 @@
-//#include <stdio.h>
-#include <libft.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   isalpha.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/11 12:29:09 by gongarci          #+#    #+#             */
+/*   Updated: 2023/09/14 08:39:43 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isalpha(int i)
+#include "libft.h"
+
+int	ft_isalpha(int i)
 {
-    if (('a' <= i && i <= 'z' || 'A' <= i && i <= 'Z'))
-        return (1);
-    return (0);   
+	if (('a' <= i && i <= 'z' ) || ('A' <= i && i <= 'Z'))
+	{
+		return (1);
+	}
+	return (0);
 }
-/*int main()
-{   
-    int i;
-    
-    i = 66;
-    if (ft_isalpha(i))
-    {
-	    printf( "%c it's an alpha\n",i);
-    } 
-    else
-    {
-	    printf("it's not an alpha\n",i);
-    }
-    
-  return (0); 
-}*/

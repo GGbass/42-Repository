@@ -1,20 +1,20 @@
-//#include<stdio.h>
-#include <libft.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 08:40:56 by gongarci          #+#    #+#             */
+/*   Updated: 2023/09/14 09:15:15 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isdigit(int i)
 {
-	while (i <= 0 && i <= 9)
-	{
+	while ('0' <= i && i <= '9' )
 		return (1);
-	}
 	return (0);
 }
-
-/*int main();
-{
-	int i;
-
-	i = -55;
-	ft_isdigit(i);
-	return (0);
-}*/

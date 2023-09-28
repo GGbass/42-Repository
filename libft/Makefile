@@ -33,6 +33,8 @@ FILES = ft_strchr.c \
 		ft_memcmp.c \
 		ft_memchr.c \
 		ft_atoi.c \
+		ft_calloc.c \
+		ft_strdup.c \
 
 
 OBJS = $(FILES:.c=.o)

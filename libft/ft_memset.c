@@ -1,17 +1,27 @@
-//#include <string.h>
-//#include <stdio.h>
-#include <libft.h>
-void    *ft_memset(void *s, int c, size_t n)
-{
-	char *p;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/26 10:34:01 by gongarci          #+#    #+#             */
+/*   Updated: 2023/09/26 10:34:03 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "libft.h"
 
-	p = (char *)s;
-	while (n > 0)
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char	*p;
+
+	p = (char *)b;
+	while (len > 0)
 	{
-		p[n - 1] = c;
-		n--;
+			p[len - 1] = c;
+			len--;
 	}
-	return(s);
+	return (b);
 }
 
 /*int main(void)

@@ -1,21 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/28 10:43:20 by gongarci          #+#    #+#             */
+/*   Updated: 2023/09/28 10:43:22 by gongarci         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 /*#include <string.h*/
 /*#include <stdio.h>*/
 
-void    *ft_memchr(const void *s, int c, size_t n_bytes)
+void	*ft_memchr(const void *s, int c, size_t n_bytes)
 {
-    size_t  i;
+	size_t	i;
+	char	*str;
 
-    i   = 0;
-    while (i < n_bytes)
-    {
-        if (((unsigned char *)s)[i] == ((unsigned char *) c)[i]);
-                return ((unsigned char *)s + i);
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	str = (char *)s;
+	while (i < n_bytes)
+	{
+		if ((unsigned char)str[i] == (unsigned char )c)
+			return ((char *)s + i);
+		i++;
+	}
+	return (NULL);
 }
-
 /*int   main()
 {
     char str[] = "Hola Mundo";

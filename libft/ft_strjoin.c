@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 10:30:52 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/03 10:30:55 by gongarci         ###   ########.fr       */
+/*   Created: 2023/10/03 10:43:26 by gongarci          #+#    #+#             */
+/*   Updated: 2023/10/03 10:43:29 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <string.h> 
-#include <stdio.h>
-#include <stdlib.h>*/
 
-char	*ft_substr(char const *str, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*substr;
-	size_t	i;
+	size_t	len1;
+	size_t	len2;
+	size_t	sub_len;
 
-	i = 0;
-	if (!str)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	sub_len = (len1 + len2 + 1);
+	substr = malloc(sub_len);
+	if (!substr)
 		return (NULL);
-	substr = ft_calloc(len + 1, 1);
-	if (substr == NULL)
-		return (NULL);
-	while (i < len && ((int)start < ft_strlen(str)))
+	else
 	{
-		substr[i++] = str[start++];
+		ft_memcpy(substr, s1, len1);
+		ft_memcpy(substr + len1, s2, len2);
+		substr[sub_len -1] = '\0';
 	}
 	return (substr);
 }
 
 /*int	main()
 {
-	char	*cadena = "Hola Milica";
-	char	*substr;
-	
-	substr = ft_substr(cadena, 5, 4);
-	printf("%s\n", substr);
-	free(substr);
+	char	*str1 = "Hola que";
+	char	*str2 = "haces";
+	char	*sub;
+
+	sub = ft_strjoin(str1, str2);
+	printf("la suma de %s\n y %s\n es %s\n", str1, str2, sub);
+	free(sub);
 	return (0);
 }*/

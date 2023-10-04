@@ -17,20 +17,23 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = ft_strlen(s);
-	if (c == 0)
-		return ((char *)s + i);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if ((char)s[i] == (char)c)
 		{
-			return ((char *)s + i);
-			i--;
+			return ((char *)&s[i]);
 		}
+		i--;
 	}
 	return (NULL);
 }
 /*int	main()
 {
+	if (c == '0')
+	{
+		return ((char *)s);
+	}
+	return (NULL);
 	const char *string = "Hola Hans";
 
 	int	search = 'a';

@@ -26,7 +26,10 @@ int		ft_tolower(int i);
 int		ft_isprint(int i);
 /*<string.h>*/
 int		ft_strlen(const char *str);
+/*strchr function searches for the first occurrence of a character in a string 
+and returns a pointer to it.*/
 char	*ft_strchr(const char *s, int c);
+
 char	*ft_strrchr(const char *s, int c);
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);

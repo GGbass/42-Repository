@@ -15,20 +15,16 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*point;
 	size_t	b;
+	void	*point;
 
-	if (count == 0 || size == 0)
-	{
-		count = 1;
-		size = 1;
-	}
 	b = count * size;
 	point = malloc(b);
-	if (point == NULL)
-	{
+	if (!point)
 		return (NULL);
+	else
+	{
+		ft_bzero(point, b);
 	}
-	ft_bzero(point, b);
 	return (point);
 }

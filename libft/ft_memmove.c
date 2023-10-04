@@ -17,6 +17,8 @@ void	*ft_memmove(void *dest, const void *src, size_t bytes_copied)
 	size_t	i;
 
 	i = 0;
+	if (!dest && !src)
+		return (NULL);
 	if (src < dest)
 	{
 		i = bytes_copied;

@@ -49,5 +49,5 @@ static int	ft_wcounter(char *str, char c)
 
 char	**ft_split(char const *s, char c)
 {
-
+	return (0);
 }

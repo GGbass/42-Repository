@@ -10,7 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include"libft.h"
+/*#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>*/
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
@@ -37,14 +40,13 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	return (substr);
 }
-
-/*
-1.- It can be used to clean up user input, 
-2.- format strings for output,
-3.- remove whitespace from strings before processing them
-
-This function works by first finding the first non-whitespace
-character in the string.
-The function then copies the string from the first non-whitespace
-character to the end of the string,
-excluding any trailing whitespace*/
+/*int	main()
+{
+	char cadena[] = "    estamos en 42   !!";
+	char *cadena2 = ft_strtrim(cadena, " ");
+	printf("la cadena  es:%s\n Resultado de la funcion %s\n", cadena, cadena2);
+	return(0);
+}*/
+/*Buscamos el primer caracter no espacio,
+copiamos la cadena donde inicia sin espacios 
+hasta el siguiente espacio*/

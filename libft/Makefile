@@ -38,6 +38,7 @@ FILES = ft_strchr.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
+		ft_split.c \
 
 
 OBJS = $(FILES:.c=.o)

@@ -21,23 +21,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
-	substr = 0;
-	if (!s1 && !set)
-	{
+	i = 0;
+	j = ft_strlen(s1);
+	while (s1[i] != '\0' && ft_strchr(set, s1[i]))
+		i++;
+	while ((j > i) && s1[j -1] && ft_strchr(set, s1[j - 1]))
+		j--;
+	substr = (char *)malloc(sizeof(char ) * (j - i + 1));
+	if (!substr)
 		return (NULL);
-	}
-	else
-	{
-		i = 0;
-		j = ft_strlen(s1);
-		while (s1[i] && ft_strchr(set, s1[i]))
-			i++;
-		while (s1[j -1] && ft_strchr(set, s1[j - 1]) && (j > i))
-			j--;
-		substr = (char *)malloc(sizeof(char ) * (j - i + 1));
-		if (substr)
-			ft_strlcpy(substr, &s1[i], j - i + 1);
-	}
+	ft_strlcpy(substr, &s1[i], j - i + 1);
 	return (substr);
 }
 /*int	main()

@@ -14,10 +14,34 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*substr;
+	size_t	i;
+
+	i = 0;
+	if ((unsigned int)ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > (size_t)ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	if (!s)
+		return (NULL);
+	substr = ft_calloc(len + 1, 1);
+	if (!substr)
+		return (NULL);
+	while (i < len && start < (unsigned int)ft_strlen(s))
+	{
+		substr[i++] = s[start++];
+	}
+	return (substr);
+}
+
+/*char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
 	size_t	i;
 	size_t	j;
 	char	*str;
 
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
 	str = (char *)malloc(sizeof(*s) * (len + 1));
 	if (str == 0)
 		return (NULL);
@@ -34,27 +58,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	str[j] = 0;
 	return (str);
-}
-/*char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	if ((unsigned int)ft_strlen(s) < (unsigned int)ft_strdup(""))
-		substr = ft_strdup(substr);
-	if (len > (size_t)ft_strlen(s + start))
-		len = ft_strlen(s + start);
-	substr = ft_calloc(len + 1, 1);
-	if (!substr)
-		return (NULL);
-	while (i < len && start < (unsigned int)ft_strlen(s))
-	{
-		substr[i++] = s[start++];
-	}
-	return (substr);
 }*/
 
 /*int	main(void)

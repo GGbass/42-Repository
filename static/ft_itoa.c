@@ -1,46 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_words_counters.c                                :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 15:30:04 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/10 14:58:17 by gongarci         ###   ########.fr       */
+/*   Created: 2023/10/10 09:53:36 by gongarci          #+#    #+#             */
+/*   Updated: 2023/10/10 10:01:16 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_count(char *s, char c)
+static int	ft_counter(long int n)
 {
 	int	count;
-	int	i;
+	int	sign;
 
-	i = 0;
 	count = 1;
-	/*while (s[i] == c)
-		i++;
-	if (s[i] == '\0')
-		return (1);*/
-	while (s[i])
+	sign = 0;
+	if (n < 0)
 	{
-		if (s[i] == c)
-		{
-			while (s[i] == c)
-				i++;
-			if (s[i] != '\0')
-				count++;
-		}
-		else
-			i++;
+		sign += 1;
+		n *= -1;
 	}
-	return (count);
+	while (n > 9)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count + sign);
 }
+
 int	main()
 {
-	char str[] = "HELL,  YEAH keep testing";
-	int word = ft_count(str, ' ');
-	printf("numbers of words in the string is : %d\n", word);
+	long int	n = '03';
+	long int	result;
+	result = ft_counter(n);
+	printf("Result of counter is : %ld", result);
 	return (0);
 }

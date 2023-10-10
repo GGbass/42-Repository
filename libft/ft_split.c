@@ -6,24 +6,23 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:07:16 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/06 16:03:07 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/10 15:12:16 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_free(char **str)
+static void	ft_free(char **str, int j)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i <= j)
 	{
 		free(str[i]);
 		i++;
 	}
 	free(str);
-	return (NULL);
 }
 
 static size_t	ft_count(const char *s, char c)
@@ -71,7 +70,10 @@ static char	**ft_split_aux(char **pointer, char const *s, char c)
 			j++;
 		pointer[k] = ft_substr(s, i, j - i);
 		if (!pointer[k])
-			return (ft_free(pointer));
+		{
+			ft_free(pointer, k);
+			return (NULL);
+		}
 		k++;
 		i = j;
 	}
@@ -92,6 +94,5 @@ char	**ft_split(char const *s, char c)
 	pointer = ft_calloc(ft_count(s, c), sizeof(char *));
 	if (!pointer)
 		return (NULL);
-	ft_split_aux(pointer, s, c);
-	return (pointer);
+	return (ft_split_aux(pointer, s, c));
 }

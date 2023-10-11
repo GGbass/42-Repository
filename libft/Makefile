@@ -47,11 +47,14 @@ FILES = ft_strchr.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 
+BONUS = ft_lstnew.c 
+
 
 OBJS = $(FILES:.c=.o)
 COMPILER = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+OBJS_BONUS = $(BONUS:.c=.o)
 NAME = libft.a
 
 all: $(NAME)
@@ -59,13 +62,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 
+bonus: $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS_BONUS)
+
 clean:
 	rm -f $(OBJS)
-	rm -f $(NAME)
+	rm -f $(OBJS_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean re all 
+.PHONY: clean fclean re all bonus

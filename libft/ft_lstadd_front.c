@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:37:39 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/13 10:54:30 by gongarci         ###   ########.fr       */
+/*   Created: 2023/10/13 10:22:11 by gongarci          #+#    #+#             */
+/*   Updated: 2023/10/13 11:56:42 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new_element;
-
-	new_element = malloc(sizeof(t_list));
-	if (!new_element)
-		return (NULL);
-	new_element->content = content;
-	new_element->next = NULL;
-	return (new_element);
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
+
 /*int	main(void)
 {
 	t_list	*head;
@@ -32,15 +29,15 @@ t_list	*ft_lstnew(void *content)
 
 	node = ft_lstnew(ft_strdup("node"));
 	node1 = ft_lstnew(ft_strdup("node1"));
-	node2 = ft_lstnew((ft_strdup("node2")));
-	head = node;
-	node-> next = node1;
-	node1-> next = node2;
+	node2 = ft_lstnew(ft_strdup("node2"));
 	while (head != NULL)
 	{
+		ft_lstadd_front(&head, node);
 		printf("%s\n", head->content);
-		head = head->next;
+		ft_lstadd_front(&head, node1);
+		printf("%s\n", head->content);
+		ft_lstadd_front(&head, node2);
+		printf("%s\n", head->content);
 	}
-
 	return (0);
 }*/

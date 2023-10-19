@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/11 13:37:39 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/13 10:54:30 by gongarci         ###   ########.fr       */
+/*   Created: 2023/10/11 13:40:57 by gongarci          #+#    #+#             */
+/*   Updated: 2023/10/11 15:05:09 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
 
 t_list	*ft_lstnew(void *content)
 {
@@ -23,24 +23,26 @@ t_list	*ft_lstnew(void *content)
 	new_element->next = NULL;
 	return (new_element);
 }
-/*int	main(void)
+int	main()
 {
-	t_list	*head;
-	t_list	*node;
-	t_list	*node1;
-	t_list	*node2;
+	t_list *head;
+	t_list *newnode = ft_lstnew(ft_strdup("tal"));
+	t_list *newnode1 = ft_lstnew(ft_strdup("hola"));
+	//another node 2
+	t_list *newnode2 = ft_lstnew(ft_strdup("como"));
+	// adding to the node1 that would be the next head
+	newnode1->next = newnode2;
+	//a new node 3
+	t_list *newnode3 = ft_lstnew(ft_strdup("estas"));
+	newnode2->next = newnode3;
+	newnode3->next =newnode;
 
-	node = ft_lstnew(ft_strdup("node"));
-	node1 = ft_lstnew(ft_strdup("node1"));
-	node2 = ft_lstnew((ft_strdup("node2")));
-	head = node;
-	node-> next = node1;
-	node1-> next = node2;
-	while (head != NULL)
+	
+	
+	while (!head)
 	{
 		printf("%s\n", head->content);
 		head = head->next;
 	}
-
 	return (0);
-}*/
+}

@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 14:21:59 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/17 12:01:10 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/19 16:56:03 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		last_node->next = new;
 	}
 }
-
 /*int	main()
 {
 	t_list	*head;

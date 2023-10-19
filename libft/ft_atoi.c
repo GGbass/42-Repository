@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/28 11:54:50 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:31:50 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include<stdlib.h>
-#include <stdio.h>*/
 
 int	ft_atoi(const char *str)
 {
@@ -41,10 +39,14 @@ int	ft_atoi(const char *str)
 
 /*int	main()
 {
-	char	cadena[] = "123456";
+	char	cadena[] = "  666461855  ";
+	char	cadena2[] = "  666 4 61 855";
 	int		result;
+	int		result2;
 
 	result = ft_atoi(cadena);
-	printf("La cadena convertida en intageer es %d\n:", result);
+	printf("Result of ft_atoi %d\n:", result);
+	result2 = atoi(cadena);
+	printf("Result of atoi %d\n;", result2);
 	return (0);
 }*/

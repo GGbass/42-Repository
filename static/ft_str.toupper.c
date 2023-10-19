@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha.c                                          :+:      :+:    :+:   */
+/*   ft_str.toupper.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 12:29:09 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/14 08:39:43 by gongarci         ###   ########.fr       */
+/*   Created: 2023/10/19 17:10:32 by gongarci          #+#    #+#             */
+/*   Updated: 2023/10/19 17:10:39 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_isalpha(int i)
+char	*ft_str_toupper(char *str)
 {
-	if (('a' <= i && i <= 'z' ) || ('A' <= i && i <= 'Z'))
+	char		*str1;
+	int			i;
+
+	str1 = ft_strdup(str);
+	i = 0;
+	while (str1[i] != '\0')
 	{
-		return (1);
+		str1[i] = ft_toupper(str1[i]);
+		i++;
 	}
-	return (0);
+	return (str1);
 }

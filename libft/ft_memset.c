@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:34:01 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/26 10:34:03 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:37:36 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -33,4 +34,5 @@ void	*ft_memset(void *b, int c, size_t len)
 	ft_memset(str + 13, '.', 10*sizeof(char));
 	printf("After my memset: %s", str);
 	return (0);
-}*/
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 09:22:33 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/10 10:51:42 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/19 17:48:34 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,17 @@ char	*ft_itoa(int n)
 			str[0] = '-';
 	return (str);
 }
-/*Converts intager into a strings
-instager counter
+/*int main()
+{
+	int	n;
+	char		result;
+	char		result2;
+
+	n = 666461855;
+	result = ft_itoa(n);
+	printf("Result ft_itoa %c\n:", result);
+	result = itoa(n);
+	printf("Result itoa %c\n:", result2);
+	return (0);
+}
 */

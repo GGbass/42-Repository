@@ -37,10 +37,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+
 /*int	main()
 {
-	const	char haystack[20] = "Bienvenidos";
-	const	char needle[20] = "venidos";
+	const	char haystack[13] = "Bienvenidos";
+	const	char needle[8] = "venidos";
 	char		*result = ft_strnstr(haystack, needle, 12);
 	if (result != NULL)
 	{
@@ -49,6 +50,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	else
 	{
 		printf ("subcadena no encontrada %s\n", result);
-	}	
+	}
 	return (0);
 }*/

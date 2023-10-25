@@ -39,8 +39,8 @@ int	ft_atoi(const char *str)
 
 /*int	main()
 {
-	char	cadena[] = "  666461855  ";
-	char	cadena2[] = "  666 4 61 855";
+	char	cadena[] = "  -666461855  ";
+	char	cadena2[] = " -666 4 61 855";
 	int		result;
 	int		result2;
 

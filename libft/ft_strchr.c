@@ -43,4 +43,5 @@ char	*ft_strchr(const char *s, int c)
 		printf ("No se encontro el caracter '%c' en la cadena ", search);
 	}
 	return (0);
-}*/
+}Esto devuelve un puntero a la primera aparición del carácter c en la cadena str,
+ o NULL si no se encuentra el carácter.*/

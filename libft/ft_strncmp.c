@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <string.h>
-//#include <stdio.h>
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -29,11 +27,19 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 /*int main()
 {
-    char    phrase1[20] = "Hola Mundo";
-    char    phrase2[20] = "Hello World";
-    size_t  n = 14;
-    char    result = ft_strncmp(phrase1, phrase2, n);
+	char	phrase1[12] = "Hola Mundo";
+	char	phrase2[13] = "Hello World";
+	size_t	n = 13;
+	int		result = ft_strncmp(phrase1, phrase2, n);
 
-    printf("Resultado %d\n", result);
-    return (0);
+	printf("Resultado %d\n", result);
+	return (0);
 }*/
+/*s1 - Esta es la primera cadena que se compara.
+s2 - Esta es la segunda cadena que se compara.
+n - El número máximo de caracteres a comparar.
+Valor devuelto
+Esta función devuelve valores que son los siguientes:
+si el valor de retorno es <0, indica que str1 es menor que str2.
+si Valor de retorno> 0, indica que str2 es menor que str1.
+si Valor de retorno = 0, indica que str1 es igual a str2.*/

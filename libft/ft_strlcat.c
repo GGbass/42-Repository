@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>*/
-/*#include <string.h>*/
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -35,8 +33,8 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 /*int main()
 {
-	char	dest[10] = "Hola";
-	char	src[] = " Margaret!";
+	char	dest[13] = "Hello";
+	char	src[] = " World!";
 
 	ft_strlcat(dest, src,sizeof(dest));
 	printf("resultado de mi strlcat : %s\n", dest);

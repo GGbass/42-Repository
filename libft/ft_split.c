@@ -96,3 +96,19 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_split_aux(pointer, s, c));
 }
+
+/*int	main()
+{
+	char **str;
+	int	i;
+
+	str = ft_split("testing my split function", ' ');
+	i = 0;
+	while (str[i])
+	{
+		printf("%s\n", str[i]);
+		i++;
+	}
+	ft_free(str, i - 1);
+	return (0);
+}*/

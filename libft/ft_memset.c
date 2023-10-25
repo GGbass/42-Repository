@@ -34,5 +34,4 @@ void	*ft_memset(void *b, int c, size_t len)
 	ft_memset(str + 13, '.', 10*sizeof(char));
 	printf("After my memset: %s", str);
 	return (0);
-}
-*/
+}*/

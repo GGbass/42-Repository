@@ -12,6 +12,10 @@
 
 FILES = ft_printf.c \
 		ft_putchar.c \
+		ft_string.c \
+		ft_putnbr_fd.c \
+		ft_unsigned_int.c \
+		ft_puthexa.c \
 
 OBJS = $(FILES:.c = .o)
 COMPILER = gcc

@@ -92,8 +92,7 @@ char	**ft_split(char const *s, char c)
 	pointer = ft_calloc(ft_count(s, c), sizeof(char *));
 	if (!pointer)
 		return (NULL);
-	ft_split_aux(pointer, s, c);
-	return (pointer);
+	return (ft_split_aux(pointer, s, c));
 }
 /*pointer: A pointer to an array of strings.
 s: A pointer to the string to be split.

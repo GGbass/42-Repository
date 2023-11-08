@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.toupper.c                                   :+:      :+:    :+:   */
+/*   ft_unsgined_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 17:10:32 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 17:10:39 by gongarci         ###   ########.fr       */
+/*   Created: 2023/11/06 14:37:04 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/06 14:37:04 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_str_toupper(char *str)
-{
-	char		*str1;
-	int			i;
+#include "printf.h"
 
-	str1 = ft_strdup(str);
-	i = 0;
-	while (str1[i] != '\0')
-	{
-		str1[i] = ft_toupper(str1[i]);
-		i++;
-	}
-	return (str1);
+void	ft_unsigned_int(unsigned int number, int fd)
+{
+	if (number >= 10)
+		ft_unsigned_int(number / 10, fd);
+	ft_putchar(number % 10 + '0', fd);
 }

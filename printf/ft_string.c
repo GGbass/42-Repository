@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.toupper.c                                   :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 17:10:32 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 17:10:39 by gongarci         ###   ########.fr       */
+/*   Created: 2023/11/02 13:42:53 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/02 13:42:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_str_toupper(char *str)
-{
-	char		*str1;
-	int			i;
+#include "printf.h"
 
-	str1 = ft_strdup(str);
+void	ft_string(char *args, int fd)
+{
+	int	i;
+
 	i = 0;
-	while (str1[i] != '\0')
-	{
-		str1[i] = ft_toupper(str1[i]);
-		i++;
-	}
-	return (str1);
+	if (!args)
+		write (1,"(NULL)", 6);
+	while (args[i] != '\0')
+		ft_putchar(args[i++], fd);
 }

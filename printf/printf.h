@@ -10,14 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifdef PRINTF_H
+#ifndef PRINTF_H
 # define PRINTF_H
-# include <stdio.h>
-# include <stdarg.h>
+
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <stdarg.h>
+# include <math.h>
 
 int		ft_printf(char const *str, ...);
-void	ft_putchar(char c);
+void	ft_putchar(char c, int fd);
+void	ft_string(char *args, int fd);
+void	ft_putnbr_fd(int number, int fd);
+void	ft_unsigned_int(unsigned int number, int fd);
+void	ft_puthexa(unsigned long int number, int fd, char c);
 
 #endif

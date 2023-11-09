@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthexa.c                                       :+:      :+:    :+:   */
+/*   ft_putmem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 22:03:27 by gongarci          #+#    #+#             */
-/*   Updated: 2023/11/09 22:03:27 by gongarci         ###   ########.fr       */
+/*   Created: 2023/11/09 21:53:02 by gongarci          #+#    #+#             */
+/*   Updated: 2023/11/09 21:53:02 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_puthexa(unsigned long int number, int fd, char c)
+void	ft_putmem(size_t n, int fd)
 {
 	char	*hexa;
 	char	str[10];
 	int		i;
 
-	hexa = "0123456789abcdef";
 	i = 0;
-	if (c == 'X')
-		hexa = "0123456789ABCDEF";
-	if (number == 0)
+	hexa = "0123456789ABCDEF";
+	write(1, "0x", 2);
+	if (n == 0)
 	{
 		ft_putchar('0', fd);
 		return ;
 	}
-	while (number != 0)
+	while (n != 0)
 	{
-		str[i] = hexa[number % 16];
-		number = number / 16;
+		str[i] = hexa[n % 16];
+		n = n / 16;
 		i++;
 	}
 	while (i--)

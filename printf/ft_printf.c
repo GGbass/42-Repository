@@ -26,6 +26,8 @@ static	void	ft_check_print(char str, int fd, va_list *args)
 		ft_unsigned_int(va_arg(*args, unsigned int), fd);
 	else if (str == 'x' || str == 'X')
 		ft_puthexa(va_arg(*args, unsigned long int), fd, str);
+	else if (str == 'p')
+		ft_putmem(va_arg(*args, size_t), fd);
 }
 
 int	ft_printf(const char *str, ...)
@@ -56,14 +58,14 @@ int	ft_printf(const char *str, ...)
 int	main(void)
 {
 	char str[11] = "hola mundo";
-	int	i = 667666;
+	int	i = 8521;
 	//long long int	power;
 	//power = pow(i, 8);
 	printf("%d\n", i / 16);
 	printf("%d\n", i % 16);
 	//printf("%d\n", power);
 	ft_printf("Hola Mundo %% %s %u\n", str, i);
-	ft_printf("Hola Mundo %% %s %x\n", str, i);
-	printf("Hola Mundo %% %s %x", str, i);
+	ft_printf("Hola Mundo %% %s %x %p\n", str, i, &i);
+	printf("Hola Mundo %% %s %x %p", str, i, &i);
 	return (0);
 }

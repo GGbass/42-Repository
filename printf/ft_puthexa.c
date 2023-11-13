@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_puthexa(unsigned long int number, int fd, char c)
+void	ft_puthexa(unsigned long int number, char c, int len)
 {
 	char	*hexa;
 	char	str[10];
@@ -24,7 +24,7 @@ void	ft_puthexa(unsigned long int number, int fd, char c)
 		hexa = "0123456789ABCDEF";
 	if (number == 0)
 	{
-		ft_putchar('0', fd);
+		ft_putchar('0', len);
 		return ;
 	}
 	while (number != 0)
@@ -34,5 +34,5 @@ void	ft_puthexa(unsigned long int number, int fd, char c)
 		i++;
 	}
 	while (i--)
-		ft_putchar(str[i], fd);
+		ft_putchar(str[i], len);
 }

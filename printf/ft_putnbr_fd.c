@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 17:57:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/05 17:57:09 by marvin           ###   ########.fr       */
+/*   Created: 2023/11/13 17:40:51 by gongarci          #+#    #+#             */
+/*   Updated: 2023/11/13 17:40:51 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int number, int fd)
+void	ft_putnbr_fd(int number, int len)
 {
 	char	c_nbr;
 
@@ -25,17 +25,16 @@ void	ft_putnbr_fd(int number, int fd)
 	if (number < 0)
 	{
 		number = -number;
-		ft_putchar('-', fd);
+		ft_putchar('-', len);
 	}
 	if (number > 10)
 	{
-		ft_putnbr_fd(number / 10, fd);
-		ft_putnbr_fd(number % 10, fd);
+		ft_putnbr_fd(number / 10, len);
+		ft_putnbr_fd(number % 10, len);
 	}
 	if (number < 10 && number > -1)
 	{
 		c_nbr = number + '0';
-		ft_putchar(c_nbr, fd);
+		ft_putchar(c_nbr, len);
 	}
-
 }

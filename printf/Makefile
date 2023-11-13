@@ -18,9 +18,9 @@ FILES = ft_printf.c \
 		ft_puthexa.c \
 		ft_putmem.c \
 
-OBJS = $(FILES:.c = .o)
+OBJS = $(FILES:.c=.o)
 COMPILER = gcc
-CFLAGS = -Wall -Werror Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 NAME = libftprintf.a
 

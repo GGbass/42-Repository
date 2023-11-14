@@ -20,11 +20,11 @@
 # include <math.h>
 
 int		ft_printf(char const *str, ...);
-void	ft_putchar(char c, int len);
-void	ft_string(char *args, int len);
-void	ft_putnbr_fd(int number, int len);
-void	ft_unsigned_int(unsigned int number, int len);
-void	ft_puthexa(unsigned long int number, char c, int len);
-void	ft_putmem(size_t n, int len);
+void	ft_putchar(char c, int *len);
+void	ft_string(char *args, int *len);
+void	ft_putnbr(int number, int *len);
+void	ft_unsigned_int(unsigned int number, int *len);
+void	ft_puthexa(unsigned int number, char c, int *len);
+void	ft_putmem(unsigned long long n, int *len);
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_unsigned_int(unsigned int number, int len)
+void	ft_unsigned_int(unsigned int number, int *len)
 {
 	if (number >= 10)
 		ft_unsigned_int(number / 10, len);

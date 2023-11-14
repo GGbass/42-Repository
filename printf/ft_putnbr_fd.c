@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr_fd(int number, int len)
+void	ft_putnbr(int number, int *len)
 {
 	char	c_nbr;
 
@@ -29,8 +29,8 @@ void	ft_putnbr_fd(int number, int len)
 	}
 	if (number > 10)
 	{
-		ft_putnbr_fd(number / 10, len);
-		ft_putnbr_fd(number % 10, len);
+		ft_putnbr(number / 10, len);
+		ft_putnbr(number % 10, len);
 	}
 	if (number < 10 && number > -1)
 	{

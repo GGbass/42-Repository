@@ -12,13 +12,17 @@
 
 #include "ft_printf.h"
 
-void	ft_string(char *args, int len)
+void	ft_string(char *args, int *len)
 {
 	int	i;
 
 	i = 0;
 	if (!args)
-		write (1, "(NULL)", 6);
+	{
+		write (1, "(null)", 6);
+		*len = *len + 6;
+		return ;
+	}
 	while (args[i] != '\0')
 		ft_putchar(args[i++], len);
 }

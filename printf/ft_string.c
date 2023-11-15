@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:42:02 by gongarci          #+#    #+#             */
-/*   Updated: 2023/11/13 17:42:02 by gongarci         ###   ########.fr       */
+/*   Created: 2023/11/02 13:42:53 by marvin            #+#    #+#             */
+/*   Updated: 2023/11/02 13:42:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
-void	ft_string(char *args, int *len)
+void	ft_string(char *args, int fd)
 {
 	int	i;
 
 	i = 0;
 	if (!args)
-	{
-		write (1, "(null)", 6);
-		*len = *len + 6;
-		return ;
-	}
+		write (1,"(NULL)", 6);
 	while (args[i] != '\0')
-		ft_putchar(args[i++], len);
+		ft_putchar(args[i++], fd);
 }

@@ -10,22 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putmem(size_t n, int fd)
+void static	ft_hexa(unsigned long long n, int *len)
 {
+	if (n >= 16)
+	{
+		ft_hexa(n / 16, len);
+		ft_hexa(n % 16, len);
+	}
+	else
+	{
+		if (n <= 9)
+			ft_putchar(n + '0', len);
+		else
+			ft_putchar(n - 10 + 'a', len);
+	}	
+}
+
+void	ft_putmem(unsigned long long n, int *len)
+{
+	ft_string("0x", len);
+	ft_hexa(n, len);
+}
+	//ft_puthexa(n, 'x', len);
+
+/*
 	char	*hexa;
-	char	str[10];
+	char	str[11];
 	int		i;
 
 	i = 0;
-	hexa = "0123456789ABCDEF";
-	write(1, "0x", 2);
-	if (n == 0)
-	{
-		ft_putchar('0', fd);
-		return ;
-	}
+	hexa = "0123456789abcdef";
 	while (n != 0)
 	{
 		str[i] = hexa[n % 16];
@@ -33,5 +49,5 @@ void	ft_putmem(size_t n, int fd)
 		i++;
 	}
 	while (i--)
-		ft_putchar(str[i], fd);
-}
+		ft_putchar(str[i], len);
+*/

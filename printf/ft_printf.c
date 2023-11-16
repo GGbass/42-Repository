@@ -10,62 +10,68 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-static	void	ft_check_print(char str, int fd, va_list *args)
+static	void	ft_check_print(char str, va_list *args, int *len, int *i)
 {
 	if (str == '%')
-		ft_putchar('%', fd);
+		ft_putchar('%', len);
 	else if (str == 'c')
-		ft_putchar(va_arg(*args, int), fd);
+		ft_putchar(va_arg(*args, int), len);
 	else if (str == 's')
-		ft_string(va_arg(*args, char *), fd);
+		ft_string(va_arg(*args, char *), len);
 	else if (str == 'd' || str == 'i')
-		ft_putnbr_fd(va_arg(*args, int), fd);
+		ft_putnbr(va_arg(*args, int), len);
 	else if (str == 'u')
-		ft_unsigned_int(va_arg(*args, unsigned int), fd);
+		ft_unsigned_int(va_arg(*args, unsigned int), len);
 	else if (str == 'x' || str == 'X')
-		ft_puthexa(va_arg(*args, unsigned long int), fd, str);
+		ft_puthexa(va_arg(*args, unsigned long int), str, len);
 	else if (str == 'p')
-		ft_putmem(va_arg(*args, size_t), fd);
+		ft_putmem(va_arg(*args, unsigned long long), len);
+	else
+		(*i)--;
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list(args);
 	int		i;
-	int		fd;
+	int		len;
+	va_list	args;
 
 	i = 0;
-	fd = 0;
+	len = 0;
 	va_start(args, str);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
 		{
 			i++;
-			ft_check_print(str[i++], fd, &args);
+			ft_check_print(str[i++], &args, &len, &i);
+			if (len == -1)
+				return (-1);
 		}
 		else
 		{
-			ft_putchar((char)str[i++], fd = 1);
+			ft_putchar((char)str[i++], &len);
+			if (len == -1)
+				return (-1);
 		}
 	}
 	va_end(args);
-	return (fd);
+	return (len);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	char str[11] = "hola mundo";
-	int	i = 8521;
-	//long long int	power;
-	//power = pow(i, 8);
+	int	i;
+	int	aux = 0;
+	char str[11] = "Hola mundo";
+	char charact = 'c';
+
+	i = 55555;
 	printf("%d\n", i / 16);
 	printf("%d\n", i % 16);
-	//printf("%d\n", power);
-	ft_printf("Hola Mundo %% %s %u\n", str, i);
-	ft_printf("Hola Mundo %% %s %x %p\n", str, i, &i);
-	printf("Hola Mundo %% %s %x %p", str, i, &i);
+	printf("hola mundo %% %x %s %p\n", i, str, &aux);
+	ft_printf("hola mundo %% %x %s %p\n", i, str, &aux);
 	return (0);
-}
+}*/

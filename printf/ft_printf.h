@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <math.h>
+# include <limits.h>
 
 int		ft_printf(char const *str, ...);
 void	ft_putchar(char c, int *len);

@@ -30,8 +30,16 @@ void static	ft_hexa(unsigned long long n, int *len)
 
 void	ft_putmem(unsigned long long n, int *len)
 {
+	int	aux;
+
 	ft_string("0x", len);
+	aux = *len;
+	if (ft_unprintf(aux, len) == -1)
+		return ;
 	ft_hexa(n, len);
+	aux = *len;
+	if (ft_unprintf(aux, len) == -1)
+		return ;
 }
 	//ft_puthexa(n, 'x', len);
 

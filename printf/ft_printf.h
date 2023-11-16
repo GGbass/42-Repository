@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <math.h>
 # include <limits.h>
+# include <ctype.h>
 
 int		ft_printf(char const *str, ...);
 void	ft_putchar(char c, int *len);
@@ -27,5 +28,6 @@ void	ft_putnbr(int number, int *len);
 void	ft_unsigned_int(unsigned int number, int *len);
 void	ft_puthexa(unsigned int number, char c, int *len);
 void	ft_putmem(unsigned long long n, int *len);
+int		ft_unprintf(int aux, int *len);
 
 #endif

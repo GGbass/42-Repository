@@ -12,25 +12,50 @@
 
 #include "ft_printf.h"
 
-void	ft_puthexa(unsigned int number, char c, int *len)
+void	static	ft_recursive(unsigned int number, char c, int *len)
 {
 	if (number >= 16)
 	{
 		ft_puthexa(number / 16, c, len);
 		ft_puthexa(number % 16, c, len);
 	}
+}
+
+void	static	ft_minus_or_nine(unsigned int number, int *len)
+{
+	int	aux;
+
+	if (number <= 9)
+	{
+		aux = *len;
+		if (ft_unprintf(aux, len) == -1)
+			return ;
+		ft_putchar(number + '0', len);
+	}
+}
+
+void	ft_puthexa(unsigned int number, char c, int *len)
+{
+	int	aux;
+
+	if (number >= 16)
+		ft_recursive(number, c, len);
 	else
 	{
 		if (number <= 9)
-		{
-			ft_putchar(number + '0', len);
-		}
+			ft_minus_or_nine(number, len);
 		else
 		{
+			aux = *len;
+			if (ft_unprintf(aux, len) == -1)
+				return ;
 			if (c == 'X')
 				ft_putchar((number - 10) + 'A', len);
 			else if (c == 'x')
 				ft_putchar((number - 10) + 'a', len);
+				aux = *len;
+			if (ft_unprintf(aux, len) == -1)
+				return ;
 		}
 	}
 }

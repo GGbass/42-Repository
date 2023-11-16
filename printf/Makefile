@@ -17,6 +17,7 @@ FILES = ft_printf.c \
 		ft_unsigned_int.c \
 		ft_puthexa.c \
 		ft_putmem.c \
+		ft_unprintf.c \
 
 OBJS = $(FILES:.c=.o)
 COMPILER = gcc

@@ -14,6 +14,10 @@
 
 void	ft_putchar(char c, int *len)
 {
-	write (1, &c, 1);
+	int	aux;
+
+	aux = write (1, &c, 1);
+	if (ft_unprintf(aux, len) == -1)
+		return ;
 	(*len)++;
 }

@@ -45,10 +45,10 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			i++;
-			ft_check_print(str[i++], &args, &len, &i);
+			ft_check_print(str[++i], &args, &len, &i);
 			if (len == -1)
 				return (-1);
+			i++;
 		}
 		else
 		{

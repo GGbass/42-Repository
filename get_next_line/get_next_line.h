@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:29:07 by gongarci          #+#    #+#             */
-/*   Updated: 2023/11/22 17:35:58 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:46:10 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,13 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 13
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+int		ft_strlen(const char *str);
+char	*ft_strdup(const char *str);
+void	*ft_memcpy(void *dest, const void *src, size_t bytes);
 
 #endif

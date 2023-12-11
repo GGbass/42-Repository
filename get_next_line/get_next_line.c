@@ -24,54 +24,92 @@ int	incluir(char *buffer, char *line)
 	i = 0;
 	while (buffer[i] != '\n' && i < ft_strlen(buffer))
 		i++;
+	if(buffer[i] == '\n')
+		i++;
 	j = ft_strlen(line);
 	ft_memcpy(line + ft_strlen(line), buffer, i);
-	ft_memcpy(buffer, buffer + i + 1, ft_strlen(buffer) - i);
+	ft_memcpy(buffer, buffer + i, ft_strlen(buffer) - i + 1);
 	line[j + i] = '\0';
 	return (eol);
 }
 
-int	first_memory(char **buffer, char **line)
+/*int	first_memory(char **buffer, char **line)
 {
-	*line = malloc(30 * sizeof(char));
+	*line = malloc(300 * sizeof(char));
 	if (!*line)
 		return (0);
-	if (!*buffer)
+	(*line)[0] = '\0';
+
+	if (!(*buffer))
 	{
-		*buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
-		if (!*buffer)
+		(*buffer) = malloc((BUFFER_SIZE + 1) * sizeof(char));
+		if (!(*buffer))
 		{
 			free(*line);
 			return (0);
 		}
+		(*buffer)[0] = '\0';
 	}
 	return (1);
 }
-
+*/
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
 	int			bytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || first_memory(&buffer, &line) == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	//bytes = first_memory(&buffer, &line);
+	//if(bytes == 0)
+	//	return NULL;
+ 	line = malloc(300 * sizeof(char));
+	if (!line)
+		return (NULL);
+	line[0] = '\0';
+	//printf("Line 1 : %s\n", line);
+
+	if (!buffer)
+	{
+		buffer = malloc((BUFFER_SIZE + 1) * sizeof(char));
+		if (!buffer)
+		{
+			free(line);
+			return (NULL);
+		}
+		buffer[0] = '\0';
+	}
 	bytes = 1;
 	if (incluir(buffer, line) == 1)
 		bytes = 0;
+
 	while (bytes > 0)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
-		if (bytes < 0)
+		//printf("Buffer: %s, Bytes: %d\n", buffer, bytes);
+		if (bytes <= 0)
 		{
 			free(buffer);
+			free(line);
 			return (NULL);
 		}
 		buffer[bytes] = '\0';
 		if (incluir(buffer, line) == 1)
 			break ;
 	}
-	return (ft_substr(line, 0, ft_strlen(line) +1));
+	if(line[ft_strlen(line) - 1] != '\n')
+	{
+		//printf("end of file");
+		free(buffer);
+	}
+	if (line[0] == '\0')
+	{
+		free();
+		return (NULL);
+	}
+	//printf("Line: %s\n", line);
+	return (ft_substr(&line, 0, ft_strlen(line)));
 }
 
 /*int	main(void)
@@ -87,10 +125,16 @@ char	*get_next_line(int fd)
 	printf("%s\n", line);
 	line = get_next_line(fd);
 	printf("%s\n", line);
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	line = get_next_line(fd);
+	printf("%s\n", line);
+	line = get_next_line(fd);
+	printf("%s\n", line);
 	close(fd);
 	return (0);
-}
-*/
+}*/
+
 /* funcion read.
 0 		  = final fichero
 -1		  =  problema de lectura

@@ -12,6 +12,62 @@
 
 #include "get_next_line.h"
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+
+	i = 0;
+	if ((unsigned int)ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > (size_t)ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	if (!s)
+		return (NULL);
+	substr = ft_calloc(len + 1, 1);
+	if (!substr)
+		return (NULL);
+	while (i < len && start < (unsigned int)ft_strlen(s))
+	{
+		substr[i++] = s[start++];
+	}
+	return (substr);
+}
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char	*p;
+
+	p = (char *)b;
+	while (len > 0)
+	{
+		p[len - 1] = c;
+		len--;
+	}
+	return (b);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	size_t	b;
+	void	*point;
+
+	b = count * size;
+	point = malloc(b);
+	if (!point)
+		return (NULL);
+	else
+	{
+		ft_bzero(point, b);
+	}
+	return (point);
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
@@ -52,6 +108,24 @@ void	*ft_memcpy(void *dest, const void *src, size_t bytes)
 		i++;
 	}
 	return (dest);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*substr;
+	size_t	len;
+
+	len = (ft_strlen(s1) + (ft_strlen(s2)) + 1);
+	substr = malloc(len);
+	if (!substr)
+		return (NULL);
+	else
+	{
+		ft_memcpy(substr, s1, ft_strlen(s1));
+		ft_memcpy(substr + ft_strlen(s1), s2, ft_strlen(s2));
+		substr[len -1] = '\0';
+	}
+	return (substr);
 }
 
 char	*ft_strdup(const char *str)

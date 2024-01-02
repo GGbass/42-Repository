@@ -23,13 +23,15 @@
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
 int		ft_strlen(const char *str);
 char	*ft_strdup(const char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t bytes);
 char	*ft_substr(char **s, unsigned int start, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t count, size_t size);
+int		allocate_memory(char **buffer, char **line);
+int		join_and_check(char *buffer, char **line);
+int		reader(char **buffer, char **line, int fd);
+void	free_memory(char **p);
+char	*ft_strjoin(char *s1, char *s2, int len2);
 
 #endif

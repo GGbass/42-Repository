@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+/*
 char	*ft_substr(char **s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -22,19 +22,21 @@ char	*ft_substr(char **s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > (size_t)ft_strlen(*s + start))
 		len = ft_strlen(*s + start);
-	if (!*s)
+	if (!(*s))
 		return (NULL);
-	substr = ft_calloc(len + 1, 1);
+	substr = malloc((len + 1) * 1);
 	if (!substr)
-		return (NULL);
-	while (i < len && start < (unsigned int)ft_strlen(*s))
 	{
-		substr[i++] = (*s)[start++];
+		free(*s);
+		return (NULL);
 	}
-	//printf("ft_substr current buffer %s\n", *s);
+	else
+		ft_memset(substr, 0, (len + 1) * 1);
+	while (i < len && start < (unsigned int)ft_strlen(*s))
+		substr[i++] = (*s)[start++];
 	free(*s);
 	return (substr);
-}
+}*/
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -47,40 +49,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		len--;
 	}
 	return (b);
-}
-
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, 0, n);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	size_t	b;
-	void	*point;
-
-	b = count * size;
-	point = malloc(b);
-	if (!point)
-		return (NULL);
-	else
-	{
-		ft_bzero(point, b);
-	}
-	return (point);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (!*s && (char)c == '\0')
-		return ((char *)s);
-	return (NULL);
 }
 
 int	ft_strlen(const char *str)
@@ -112,24 +80,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t bytes)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*substr;
-	size_t	len;
-
-	len = (ft_strlen(s1) + (ft_strlen(s2)) + 1);
-	substr = malloc(len);
-	if (!substr)
-		return (NULL);
-	else
-	{
-		ft_memcpy(substr, s1, ft_strlen(s1));
-		ft_memcpy(substr + ft_strlen(s1), s2, ft_strlen(s2));
-		substr[len -1] = '\0';
-	}
-	return (substr);
-}
-
 char	*ft_strdup(const char *str)
 {
 	char	*point;
@@ -141,4 +91,25 @@ char	*ft_strdup(const char *str)
 		return (NULL);
 	ft_memcpy(point, str, len + 1);
 	return (point);
+}
+
+char	*ft_strjoin(char *s1, char *s2, int len2)
+{
+	char	*substr;
+	int		len1;
+	int		sub_len;
+
+	len1 = ft_strlen(s1);
+	sub_len = (len1 + len2 + 1);
+	substr = malloc(sub_len);
+	if (!substr)
+		return (NULL);
+	else
+	{
+		ft_memcpy(substr, s1, len1);
+		ft_memcpy(substr + len1, s2, len2);
+		substr[sub_len -1] = '\0';
+	}
+	free(s1);
+	return (substr);
 }

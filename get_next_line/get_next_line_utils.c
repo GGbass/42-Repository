@@ -11,32 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/*
-char	*ft_substr(char **s, unsigned int start, size_t len)
-{
-	char	*substr;
-	size_t	i;
-
-	i = 0;
-	if ((unsigned int)ft_strlen(*s) < start)
-		return (ft_strdup(""));
-	if (len > (size_t)ft_strlen(*s + start))
-		len = ft_strlen(*s + start);
-	if (!(*s))
-		return (NULL);
-	substr = malloc((len + 1) * 1);
-	if (!substr)
-	{
-		free(*s);
-		return (NULL);
-	}
-	else
-		ft_memset(substr, 0, (len + 1) * 1);
-	while (i < len && start < (unsigned int)ft_strlen(*s))
-		substr[i++] = (*s)[start++];
-	free(*s);
-	return (substr);
-}*/
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -100,6 +74,8 @@ char	*ft_strjoin(char *s1, char *s2, int len2)
 	int		sub_len;
 
 	len1 = ft_strlen(s1);
+	if (!s1 || !s2)
+		return (NULL);
 	sub_len = (len1 + len2 + 1);
 	substr = malloc(sub_len);
 	if (!substr)

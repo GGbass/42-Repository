@@ -12,32 +12,6 @@
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
-{
-	static char	*buffer;
-	char		*line;
-	int			bytes;
-
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	if (allocate_memory(&buffer, &line) == 0)
-		return (NULL);
-	bytes = reader(&buffer, &line, fd);
-	if (bytes == -1)
-		return (NULL);
-	else if (bytes == 0)
-		free_memory(&buffer);
-	//if (line[0] == '\0' || line[ft_strlen(line) - 1] != '\n')
-	//	free_memory(&buffer);
-	if (line[0] == '\0')
-	{
-		free_memory (&line);
-		return (NULL);
-	}
-	return (line);
-	//return ((ft_substr(&line, 0, ft_strlen(line))));
-}
-
 int	reader(char **buffer, char **line, int fd)
 {
 	int		bytes;
@@ -55,7 +29,11 @@ int	reader(char **buffer, char **line, int fd)
 		(*buffer)[bytes] = '\0';
 	}
 	if (!(*line))
+	{
+		free_memory(buffer);
+		free_memory(line);
 		return (-1);
+	}
 	return (bytes);
 }
 
@@ -111,42 +89,40 @@ void	free_memory(char **p)
 	return ;
 }
 
-/*
-void my_printf(char *s)
+char	*get_next_line(int fd)
 {
-	if(s)
-		printf("%s\n",s);
-	else
-		printf("EOF\n");
+	static char	*buffer;
+	char		*line;
+	int			bytes;
+
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (NULL);
+	if (allocate_memory(&buffer, &line) == 0)
+		return (NULL);
+	bytes = reader(&buffer, &line, fd);
+	if (bytes == -1)
+		return (NULL);
+	else if (bytes == 0)
+		free_memory(&buffer);
+	if (line[0] == '\0')
+	{
+		free_memory (&line);
+		return (NULL);
+	}
+	return (line);
 }
 
-int	main(void)
+/*
+void	free_memory(char **p)
 {
-	char	*line;
-	int		fd;
+	int cont;
 
-	line = NULL;
-	fd = open("fichero.txt", O_RDONLY);
-	line = get_next_line(fd);
-	my_printf(line);
-	line = get_next_line(fd);
-	my_printf(line);
-	line = get_next_line(fd);
-	my_printf(line);
-	line = get_next_line(fd);
-	my_printf(line);
-	line = get_next_line(fd);
-	my_printf(line);
-	line = get_next_line(fd);
-	my_printf(line);
-	close(fd);
-	return (0);
-}*/
-
-/* funcion read.
-0 		  = final fichero
--1		  =  problema de lectura
-n numeros = bytes leidos.
- 
- int read(int fd, void *buffer	, size_t n_bytes)
- */
+	cont = 0;
+	while (p[cont] != '\0')
+	{
+		free(p[cont]);
+		cont++;
+	}
+	free(p);
+}
+*/

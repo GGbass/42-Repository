@@ -1,0 +1,8 @@
+hola 
+mundo
+
+
+buffer [memoria]
+
+buffer [fd1 memoria ]
+buffer[fd memoria]

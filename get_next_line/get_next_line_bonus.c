@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:12:59 by gongarci          #+#    #+#             */
-/*   Updated: 2024/01/03 21:01:09 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:34:51 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,8 @@ int	join_and_check(char *buffer, char **line)
 
 int	allocate_memory(char **buffer, char **line)
 {
-	if (!*line)
-		free_memory(line);
 	(*line) = malloc(sizeof(char));
-	if (!(*line))
+	if (!*line)
 	{
 		if (*buffer)
 			free_memory(buffer);
@@ -69,6 +67,7 @@ int	allocate_memory(char **buffer, char **line)
 		(*buffer) = malloc((BUFFER_SIZE + 1) * sizeof(char));
 		if (!(*buffer))
 		{
+			free_memory(buffer);
 			free_memory(line);
 			return (0);
 		}
@@ -93,8 +92,11 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			bytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		free_memory(&buffer[fd]);
 		return (NULL);
+	}
 	if (allocate_memory(&buffer[fd], &line) == 0)
 		return (NULL);
 	bytes = reader(&buffer[fd], &line, fd);

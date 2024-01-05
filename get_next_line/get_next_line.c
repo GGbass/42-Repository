@@ -29,11 +29,7 @@ int	reader(char **buffer, char **line, int fd)
 		(*buffer)[bytes] = '\0';
 	}
 	if (!(*line))
-	{
-		free_memory(buffer);
-		free_memory(line);
 		return (-1);
-	}
 	return (bytes);
 }
 
@@ -66,10 +62,10 @@ int	allocate_memory(char **buffer, char **line)
 		return (0);
 	}
 	(*line)[0] = '\0';
-	if (!(*buffer))
+	if (!*buffer)
 	{
 		(*buffer) = malloc((BUFFER_SIZE + 1) * sizeof(char));
-		if (!(*buffer))
+		if (!*buffer)
 		{
 			free_memory(line);
 			return (0);
@@ -95,7 +91,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			bytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (allocate_memory(&buffer, &line) == 0)
 		return (NULL);

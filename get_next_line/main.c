@@ -12,6 +12,17 @@
 
 #include "get_next_line.h"
 
+int	my_printf(char *line, int fd)
+{
+	while (line != '\0')
+	{
+		printf("%s", line);
+		line = get_next_line(fd);
+	}
+	printf("\nEOF");
+	return (0);
+}
+
 int	main(void)
 {
 	char	*line;
@@ -21,17 +32,7 @@ int	main(void)
 	line = NULL;
 	fd = open("fichero.txt", O_RDONLY);
 	line = get_next_line(fd);
-	printf("%s", line);
-	fd1 = open("fichero2.txt", O_RDONLY);
-	line = get_next_line(fd1);
-	printf("%s", line);
-	fd = open("fichero.txt", O_RDONLY);
-	line = get_next_line(fd);
-	printf("%s", line);
-	fd1 = open("fichero2.txt", O_RDONLY);
-	line = get_next_line(fd1);
-	printf("%s", line);
+	my_printf(line, fd);
 	close(fd);
-	close(fd1);
 	return (0);
 }

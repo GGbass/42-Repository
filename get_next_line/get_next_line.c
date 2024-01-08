@@ -19,12 +19,6 @@ int	reader(char **buffer, char **line, int fd)
 	bytes = 1;
 	while (bytes > 0 && join_and_check(*buffer, line) == 0)
 	{
-		if (join_and_check(*buffer, line) == -1)
-		{
-			free_memory(buffer);
-			free_memory(line);
-			return (-1);
-		}
 		bytes = read(fd, *buffer, BUFFER_SIZE);
 		if (bytes == -1)
 		{
@@ -44,12 +38,6 @@ int	join_and_check(char *buffer, char **line)
 	int		i;
 
 	i = 0;
-	if (!(*line) || !buffer)
-	{
-		free_memory(&buffer);
-		free_memory(line);
-		return (-1);
-	}
 	while (buffer[i] != '\n' && buffer[i] != '\0')
 		i++;
 	if (buffer[i] == '\n')

@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:12:59 by gongarci          #+#    #+#             */
-/*   Updated: 2024/01/05 21:34:51 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/01/08 21:40:44 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ int	allocate_memory(char **buffer, char **line)
 	return (1);
 }
 
-void	free_memory(char **p)
+char	*free_memory(char **p)
 {
 	if (*p)
 	{
 		free(*p);
 		(*p) = NULL;
 	}
-	return ;
+	return (NULL);
 }
 
 char	*get_next_line(int fd)
@@ -92,7 +92,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			bytes;
 
-	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd > 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0))
 	{
 		free_memory(&buffer[fd]);
 		return (NULL);

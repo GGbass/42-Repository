@@ -32,7 +32,9 @@ int	main(void)
 	line = NULL;
 	fd = open("fichero.txt", O_RDONLY);
 	line = get_next_line(fd);
+	printf("\033[32m1.- fichero txt  \033[00m\n");
 	my_printf(line, fd);
+
 	close(fd);
 	return (0);
 }

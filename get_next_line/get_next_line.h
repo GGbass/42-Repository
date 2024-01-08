@@ -31,7 +31,7 @@ void	*ft_memset(void *b, int c, size_t len);
 int		allocate_memory(char **buffer, char **line);
 int		join_and_check(char *buffer, char **line);
 int		reader(char **buffer, char **line, int fd);
-void	free_memory(char **p);
+char	*free_memory(char **p);
 char	*ft_strjoin(char *s1, char *s2, int len2);
 
 #endif

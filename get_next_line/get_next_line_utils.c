@@ -46,6 +46,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t bytes)
 	i = 0;
 	p_dest = (char *)dest;
 	p_src = (char *)src;
+	if (!p_dest || !p_src)
+		return (NULL);
 	while (i < bytes)
 	{
 		p_dest[i] = p_src[i];

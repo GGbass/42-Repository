@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 09:30:32 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/17 09:30:44 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:59:58 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+/*#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>*/
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
@@ -29,22 +32,20 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		i++;
 	}
 	if (i < size)
-			dest[i] = '\0';
+		dest[i] = '\0';
 	while (src[i] != '\0')
-			i++;
+		i++;
 	return (i);
 }
-
 /*int	main(void)
 {
-	char		dest[15];
-	const char	*src;
-	size_t	size;
+	char		dest[20];
+	const char	*name = "Gonzalo";
+	const char	*nickname = "Garcia";
+	size_t		copy1;
+	size_t		copy2;
 
-	src = "Gonzalo Garcia";
-	size = ft_strlcpy(dest, src, ft_strlen(src) + 1);
-	//size = strncpy(dest, src, ft_strlen(src));
-	printf("Caracteres copiados del src %zu\n", size);
-	printf("resultado del dest %s\n", dest);
+	copy1 = ft_strlcpy(dest, name, sizeof(dest));
+	printf("Copy1: %zu, dest: %s\n", copy1, dest);
 	return (0);
 }*/

@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:40:01 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 16:30:25 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:48:40 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}				t_list;
 
 /*<ctype.h>*/
 int		ft_isalpha(int i);

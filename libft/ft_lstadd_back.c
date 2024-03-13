@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 14:21:59 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 16:56:03 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:51:07 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	t_list	*last_node;
 
 	if (!*lst)
-			*lst = new;
+		*lst = new;
 	else
 	{
 		last_node = ft_lstlast(*lst);

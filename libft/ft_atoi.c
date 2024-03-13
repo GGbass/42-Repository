@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 11:54:47 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 17:31:50 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:40:43 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,25 @@ int	ft_atoi(const char *str)
 	negative = 1;
 	result = 0;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-			i++;
+		i++;
 	if (str[i] == '-' || (str[i] == '+'))
 	{
 		if (str[i] == '-')
-				negative *= -1;
+			negative *= -1;
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-			result = (str[i] - '0') + (result * 10);
-			i++;
+		result = (str[i] - '0') + (result * 10);
+		i++;
 	}
 	return (result * negative);
 }
 
 /*int	main()
 {
-	char	cadena[] = "  -666461855  ";
-	char	cadena2[] = " -666 4 61 855";
+	char	cadena[] = "  666461855  ";
+	char	cadena2[] = "  666 4 61 855";
 	int		result;
 	int		result2;
 

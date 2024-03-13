@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 09:22:33 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 17:48:34 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:49:44 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,26 @@ char	*ft_itoa(int n)
 		size--;
 	}
 	if (n < 0)
-			str[0] = '-';
+		str[0] = '-';
 	return (str);
 }
-/*int main()
+
+/*int	main(void)
 {
-	int	n;
-	char		result;
-	char		result2;
+	int		n;
+	char	*result;
+	char	*result2;
 
 	n = 666461855;
 	result = ft_itoa(n);
-	printf("Result ft_itoa %c\n:", result);
-	result = itoa(n);
-	printf("Result itoa %c\n:", result2);
+	printf("Result ft_itoa %s\n:", result);
+	result2 = itoa(n);
+	printf("Result itoa %s\n:", result2);
 	return (0);
-}
-*/
+}*/
+
+/*int	main(void)
+{
+	int	n = 
+	return (0);
+}*/

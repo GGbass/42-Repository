@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:34:01 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/19 17:37:36 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:58:41 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,17 @@ void	*ft_memset(void *b, int c, size_t len)
 	p = (char *)b;
 	while (len > 0)
 	{
-			p[len - 1] = c;
-			len--;
+		p[len - 1] = c;
+		len--;
 	}
 	return (b);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-	char str[50] = "Esto es una linea de caracteres.";
+	char	str[50] = "Esto es una linea de caracteres.";
 	printf("\nBefore memset(): %s\n", str);
-	//memset(str + 13, '.', 8*sizeof(char));
-	//printf("After memset: %s", str);
-	ft_memset(str + 13, '.', 10*sizeof(char));
-	printf("After my memset: %s", str);
+	ft_memset(str + 5, '.', 15);
+	printf("After memset: %s", str);
 	return (0);
 }*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:22:11 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/28 15:22:13 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:39:47 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,12 @@ char	*ft_strdup(const char *str)
 	ft_memcpy (point, str, len +1);
 	return (point);
 }
+
+/*int	main(void)
+{
+	char	*str;
+
+	str = ft_strdup("Hello World");
+	printf("valor de str es %s\n", str);
+	return (0);
+}*/

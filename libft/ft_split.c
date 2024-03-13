@@ -6,7 +6,7 @@
 /*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:07:16 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/10 15:12:16 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:59:51 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,18 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_split_aux(pointer, s, c));
 }
-
-/*int	main()
+/*
+int	main()
 {
 	char **str;
-	int	i;
+	int		i;
+	char *pala;
 
-	str = ft_split("testing my split function", ' ');
+	pala  = "";
+	str = ft_split(pala, 0);
 	i = 0;
+	printf("%p\n", str);
+	printf("%p\n", str[0]);
 	while (str[i])
 	{
 		printf("%s\n", str[i]);
@@ -111,4 +115,4 @@ char	**ft_split(char const *s, char c)
 	}
 	ft_free(str, i - 1);
 	return (0);
-}*/
+} */

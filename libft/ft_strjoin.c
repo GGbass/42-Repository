@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:43:26 by gongarci          #+#    #+#             */
-/*   Updated: 2023/10/03 10:43:29 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:59:18 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,17 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*substr;
-	size_t	len1;
-	size_t	len2;
-	size_t	sub_len;
+	size_t	len;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	sub_len = (len1 + len2 + 1);
-	substr = malloc(sub_len);
+	len = (ft_strlen(s1) + (ft_strlen(s2)) + 1);
+	substr = (char *)malloc(len);
 	if (!substr)
 		return (NULL);
 	else
 	{
-		ft_memcpy(substr, s1, len1);
-		ft_memcpy(substr + len1, s2, len2);
-		substr[sub_len -1] = '\0';
+		ft_memcpy(substr, s1, ft_strlen(s1));
+		ft_memcpy(substr + ft_strlen(s1), s2, ft_strlen(s2));
+		substr[len - 1] = '\0';
 	}
 	return (substr);
 }

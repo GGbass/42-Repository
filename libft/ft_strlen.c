@@ -23,12 +23,3 @@ int	ft_strlen(const char *str)
 	}
 	return (i);
 }
-
-/*int	main(void)
-{
-	char	*string;
-
-	string = "Hola";
-	printf("%d\n", ft_strlen(string));
-	return (0);
-}*/

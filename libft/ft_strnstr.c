@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 09:52:00 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/20 09:53:13 by gongarci         ###   ########.fr       */
+/*   Updated: 2024/03/12 21:37:01 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				j++;
 			}
 			j = 0;
-		}	
+		}
 		i++;
 	}
 	return (NULL);
 }
-
 /*int	main()
 {
-	const	char haystack[13] = "Bienvenidos";
-	const	char needle[8] = "venidos";
+	const	char haystack[20] = "Bienvenidos";
+	const	char needle[20] = "venidos";
 	char		*result = ft_strnstr(haystack, needle, 12);
 	if (result != NULL)
 	{
@@ -50,6 +49,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	else
 	{
 		printf ("subcadena no encontrada %s\n", result);
-	}
+	}	
 	return (0);
 }*/

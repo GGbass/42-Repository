@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gongarci <gongarci@student.42madrid>       +#+  +:+       +#+        */
+/*   By: gongarci <gongarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:06:43 by gongarci          #+#    #+#             */
-/*   Updated: 2023/09/26 12:06:45 by gongarci         ###   ########.fr       */
+/*   Updated: 2023/10/20 12:24:53 by gongarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char	dest[7];
 	char	src[] = "Hola Mundo!";
+	size_t	len;
 
+	len = sizeof(src);
+	printf ("%zu\n", len);
 	ft_memcpy(dest, src, sizeof(src));
 	printf("Resultado de dest es %s\n :", dest);
 	return (0);
